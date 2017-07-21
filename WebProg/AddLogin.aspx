@@ -1,43 +1,49 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddLogin.aspx.cs" Inherits="WebProg.AddLogin" %>
+﻿<%@ Page Title="Add Login" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddLogin.aspx.cs" Inherits="WebProg.AddLogin" %>
 
-<!DOCTYPE html>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <%--<link href="Styles/StyleSheet.css" rel="stylesheet" />--%>
+    <div class="jumbotron">
+        <h1>Password Bank</h1>
+        <p class="lead">An easy and safe way to store passwords for all the sites you can think of</p>
+        <%--<p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>--%>
+    </div>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div class="row">
-            <h2>Add A Login</h2>
 
-            <div id="websiteDetails" class="col-md-4">
-            <asp:Label ID="Label1" runat="server" Text="Website:">
+
+    <div class="row">
+        <h2 class="Jumbotron">Add A Login</h2>
+
+        <div id="websiteDetails" class="col-md-4">
+            <h3>Website Details</h3>
+            <Label ID="Label1" for="websiteName">Website:
                 <asp:TextBox ID="websiteName" runat="server"></asp:TextBox>
-            </asp:Label>
-            <asp:Label ID="Label2" runat="server" Text="Website Address:">
+            </Label>
+            <Label ID="Label2" for="link">Website Address:
                 <asp:TextBox ID="link" runat="server"></asp:TextBox>
-            </asp:Label>
-            </div>
-
-            <div id="loginDetails" class="col-md-4">
-            <asp:Label ID="Label3" runat="server" Text="Username:">
-                <asp:TextBox ID="username" runat="server"></asp:TextBox>
-            </asp:Label>
-            <asp:Label ID="Label4" runat="server" Text="Password:">
-                <asp:TextBox ID="password" runat="server"></asp:TextBox>
-            </asp:Label>
-            <asp:Label ID="Label5" runat="server" Text="Additional Info:">
-                <asp:TextBox ID="info" runat="server"></asp:TextBox>
-            </asp:Label>
-            <asp:Label ID="Label6" runat="server" Text="Email Address:">
-                <asp:TextBox ID="email" runat="server"></asp:TextBox>
-            </asp:Label>
-            </div>
-
-            <asp:Button ID="add" runat="server" Text="Add Login" />
-
+            </Label>
         </div>
-    </form>
-</body>
-</html>
+
+        <div id="loginDetails" class="col-md-4">
+            <h3>Login Details</h3>
+            <Label ID="Label3" for="username">Username/Email:
+                <asp:TextBox ID="username" runat="server"></asp:TextBox>
+            </Label>
+            <Label ID="Label4" for="password">Password:
+                <asp:TextBox ID="password" runat="server"></asp:TextBox>
+            </Label>
+            <Label ID="Label6" for="email">Email Address:
+                <asp:TextBox ID="email" runat="server"></asp:TextBox>
+            </Label>
+            <Label ID="Label5"  for="info">Additional Info:
+                <asp:TextBox ID="info" runat="server"></asp:TextBox>
+            </Label>
+           
+        </div>
+
+        
+
+    </div>
+<asp:Button ID="add" runat="server" Text="Add Login" class="btn btn-default"/>
+
+
+</asp:Content>
