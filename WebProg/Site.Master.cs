@@ -7,6 +7,7 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
+using System.Configuration;
 
 namespace WebProg
 {
@@ -46,6 +47,8 @@ namespace WebProg
             }
 
             Page.PreLoad += master_Page_PreLoad;
+
+            
         }
 
         protected void master_Page_PreLoad(object sender, EventArgs e)

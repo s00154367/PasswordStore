@@ -14,17 +14,14 @@
         <h2 class="Jumbotron">Add A Login</h2>
 
         <div id="websiteDetails" class="col-md-4">
-            <h3>Website Details</h3>
-            <Label ID="Label1" for="websiteName">Website:
-                <asp:TextBox ID="websiteName" runat="server"></asp:TextBox>
-            </Label>
-            <Label ID="Label2" for="link">Website Address:
-                <asp:TextBox ID="link" runat="server"></asp:TextBox>
-            </Label>
-        </div>
+            
+            <Label ID="Label1" for="websiteName">Website Name:               
+                
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Id], [Name] FROM [WebsiteList]"></asp:SqlDataSource>
+                <asp:DropDownList ID="ddlWebsite" runat="server" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="Id"></asp:DropDownList>
 
-        <div id="loginDetails" class="col-md-4">
-            <h3>Login Details</h3>
+                <asp:Button ID="Button1" runat="server" Text="AddAWebsite" />
+                </Label>     
             <Label ID="Label3" for="username">Username/Email:
                 <asp:TextBox ID="username" runat="server"></asp:TextBox>
             </Label>
@@ -37,13 +34,31 @@
             <Label ID="Label5"  for="info">Additional Info:
                 <asp:TextBox ID="info" runat="server"></asp:TextBox>
             </Label>
-           
+        </div>
+
+        <div id="loginDetails" class="col-md-4 disabled" >
+       
+                       <Label ID="Label7" for="websiteName">Website Name:
+                <asp:TextBox ID="Wname" runat="server"></asp:TextBox>
+            </Label>     
+            <Label ID="Label8" for="link">Website Address:
+                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            </Label>
+            <Label ID="Label9" for="password">Password:
+                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+            </Label>
+            <Label ID="Label10" for="email">Email Address:
+                <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+            </Label>
+            <Label ID="Label11"  for="info">Additional Info:
+                <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+            </Label>
         </div>
 
         
 
     </div>
-<asp:Button ID="add" runat="server" Text="Add Login" class="btn btn-default"/>
+<asp:Button ID="add" runat="server" Text="Add Login" class="btn btn-default" OnClick="add_Click"/>
 
 
 </asp:Content>
