@@ -12,28 +12,24 @@
 
     <div class="row">
         <div class="col-md-4">
-            <h2 id="web">Facebook</h2>
-            <img id="logo" alt="logo" src="Images/nologo.png"/>
+            <h2 id="login1">Facebook</h2>
+            <img id="logo1" alt="logo" src="Images/nologo.png"/>
             <p>
                 <a class="btn btn-default" ">Login &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
-            <h2>Get more libraries</h2>
+            <h2 id="login2">Google</h2>
+            <img id="logo2" alt="logo" src="Images/nologo.png"/>
             <p>
-                
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
+                <a class="btn btn-default" ">Login &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
-            <h2>Web Hosting</h2>
+            <h2 id="login3">YouTube</h2>
+            <img id="logo3" alt="logo" src="Images/nologo.png"/>
             <p>
-                
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
+                <a class="btn btn-default" ">Login &raquo;</a>
             </p>
         </div>
     </div>

@@ -13,5 +13,10 @@ namespace WebProg
         {
             //web.innerHtml = "heelo";
         }
+
+        protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+        {
+
+        }
     }
 }
