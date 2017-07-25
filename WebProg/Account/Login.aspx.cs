@@ -38,6 +38,7 @@ namespace WebProg.Account
                 switch (result)
                 {
                     case SignInStatus.Success:
+                        Session["User"] = User.Identity.Name;
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                         break;
                     case SignInStatus.LockedOut:
@@ -54,6 +55,10 @@ namespace WebProg.Account
                         FailureText.Text = "Invalid login attempt";
                         ErrorMessage.Visible = true;
                         break;
+
+
+                        
+
                 }
             }
         }

@@ -14,7 +14,7 @@
             
             
         </div>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Name], [Link], [Username], [password], [Additional Info] AS Additional_Info, [Email] FROM [Websites]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Name],[WebsiteID], [Username], [password], [AdditionalInfo] AS Additional_Info, [Email] FROM [Logins]"></asp:SqlDataSource>
         <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataSourceID="SqlDataSource1" GridLines="Vertical" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
             <AlternatingRowStyle BackColor="#DCDCDC" />
             <Columns>

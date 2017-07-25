@@ -11,7 +11,7 @@ namespace WebProg
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //web.innerHtml = "heelo";
+            
         }
 
         protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
