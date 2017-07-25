@@ -32,17 +32,19 @@ namespace WebProg
             string _email = email.Text;
             string pass = password.Text;
             string Ainfo = info.Text;
+            string loguser = User.Identity.Name;
             
-            string connectionstring = "Data Source=(LocalDb)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-WebProg-20170720092452.mdf;Initial Catalog=aspnet-WebProg-20170720092452;Integrated Security=true";
+            //string connectionstring = "Data Source=(LocalDb)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-WebProg-20170720092452.mdf;Initial Catalog=aspnet-WebProg-20170720092452;Integrated Security=true";
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString());
-            string query = "Insert into Logins(WebsiteID,Username,Password,AdditionalInfo,Email) " + "Values ( @webid,@user,@pass,@Ainfo,@_email)";
+            string query = "Insert into Logins(WebsiteID,Username,Password,AdditionalInfo,[User],Email) Values ( @webid,@user,@pass,@Ainfo,@loguser,@_email)";
             SqlCommand insertQuery = new SqlCommand(query,connection);
             insertQuery.Parameters.AddWithValue("@webid", webid);
             insertQuery.Parameters.AddWithValue("@user" ,user);
             insertQuery.Parameters.AddWithValue("@pass", pass);
             insertQuery.Parameters.AddWithValue("@Ainfo", Ainfo);
+            insertQuery.Parameters.AddWithValue("@loguser", User.Identity.Name);  
             insertQuery.Parameters.AddWithValue("@_email", _email);
-            //insertQuery.Parameters.AddWithValue("@currentuser", currentUser);
+                      
             connection.Open();
             insertQuery.ExecuteNonQuery();
             connection.Close();
@@ -53,7 +55,7 @@ namespace WebProg
             string name = Wname.Text;
             string address = link.Text;
             
-            string connectionstring = "Data Source=(LocalDb)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-WebProg-20170720092452.mdf;Initial Catalog=aspnet-WebProg-20170720092452;Integrated Security=true";
+            //string connectionstring = "Data Source=(LocalDb)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-WebProg-20170720092452.mdf;Initial Catalog=aspnet-WebProg-20170720092452;Integrated Security=true";
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString());
             
             string query = "Insert into WebsiteList(Name,Link) Values (@name,@address)";

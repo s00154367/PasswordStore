@@ -14,12 +14,11 @@
             
             
         </div>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Name],[WebsiteID], [Username], [password], [AdditionalInfo] AS Additional_Info, [Email] FROM [Logins]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [WebsiteList].[Name], [Username], [password], [AdditionalInfo] AS Additional_Info, [Email] FROM [Logins] INNER JOIN [WebsiteList] on [WebsiteList].[Id] = [Logins].[WebsiteID]"></asp:SqlDataSource>
         <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataSourceID="SqlDataSource1" GridLines="Vertical" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
             <AlternatingRowStyle BackColor="#DCDCDC" />
             <Columns>
                 <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                <asp:BoundField DataField="Link" HeaderText="Link" SortExpression="Link" />
                 <asp:BoundField DataField="Username" HeaderText="Username" SortExpression="Username" />
                 <asp:BoundField DataField="password" HeaderText="password" SortExpression="password" />
                 <asp:BoundField DataField="Additional_Info" HeaderText="Additional_Info" SortExpression="Additional_Info" />

@@ -6,7 +6,7 @@
         <h1>Password Bank</h1>
         <p class="lead">An easy and safe way to store passwords for all the sites you can think of</p>
         <%--<p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>--%>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Name], [Username], [password], [AdditionalInfo], [Email], [User], [WebsiteID] FROM [Logins] WHERE ([User] = @User)">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [WebsiteList].[Name], [Username], [password], [AdditionalInfo] AS Additional_Info, [Email] FROM [Logins] INNER JOIN [WebsiteList] on [WebsiteList].[Id] = [Logins].[WebsiteID] WHERE ([User] = @User)">
             <SelectParameters>
                 <asp:SessionParameter DefaultValue="null" Name="User" SessionField="User" Type="String" />
             </SelectParameters>
