@@ -38,7 +38,9 @@ namespace WebProg.Account
                 switch (result)
                 {
                     case SignInStatus.Success:
-                        Session["User"] = User.Identity.Name;
+                        //Session["CurUser"] = User.Identity.Name;
+                        Response.Cookies["CurUser"].Value = User.Identity.Name;
+                        Response.Cookies["CurUser"].Expires = DateTime.Now.AddDays(1);
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                         break;
                     case SignInStatus.LockedOut:

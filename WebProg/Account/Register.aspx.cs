@@ -23,8 +23,11 @@ namespace WebProg.Account
                 //string code = manager.GenerateEmailConfirmationToken(user.Id);
                 //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
                 //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
-                Session["User"] = User.Identity.Name;
+                
                 signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
+                //Session["CurUser"] = User.Identity.Name;
+                Response.Cookies["CurUser"].Value = User.Identity.Name;
+                Response.Cookies["CurUser"].Expires = DateTime.Now.AddDays(1);
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
             else 
