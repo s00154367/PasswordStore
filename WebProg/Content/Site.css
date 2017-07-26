@@ -36,3 +36,16 @@ input[type="select"] {
         padding: 0;
     }
 }
+
+.navbar-inverse {
+    background-color: #a31d1d;
+    color:black;
+}
+
+.GridViewStyle {
+    border-right: 2px solid #a31d1d;
+    border-bottom: 2px solid #a31d1d;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    padding:10px;
+}

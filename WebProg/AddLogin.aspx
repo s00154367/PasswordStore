@@ -21,7 +21,7 @@
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Id], [Name] FROM [WebsiteList]"></asp:SqlDataSource>
                 <asp:DropDownList ID="ddlWebsite" runat="server" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="Id" ></asp:DropDownList>
 
-                <asp:Button ID="Button1" runat="server" Text="AddAWebsite" />
+                
             </label>
             <label id="Label3" for="username">
                 Username/Email:
