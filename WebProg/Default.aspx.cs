@@ -14,9 +14,16 @@ namespace WebProg
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            /*if (!Request.IsSecureConnection)
+            {
+                string url = ConfigurationManager.AppSettings["SecurePath"] + "Default.aspx";
+                Response.Redirect(url);
+            }*/
             //string currentuser = (string)(Session["CurUser"]);
             Response.Cookies["CurUser"].Value = User.Identity.Name;
             Response.Cookies["CurUser"].Expires = DateTime.Now.AddDays(1);
+
             //Response.Redirect("../Default.aspx");
             // Response.Redirect(Request.Url.AbsoluteUri);
             Response.Write("<script>window.opener.location.href = window.opener.location.href </script>");
