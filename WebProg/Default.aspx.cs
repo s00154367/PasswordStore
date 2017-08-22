@@ -14,7 +14,7 @@ namespace WebProg
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //Tryed to implement Security but was not successful
             /*if (!Request.IsSecureConnection)
             {
                 string url = ConfigurationManager.AppSettings["SecurePath"] + "Default.aspx";
@@ -24,18 +24,11 @@ namespace WebProg
             Response.Cookies["CurUser"].Value = User.Identity.Name;
             Response.Cookies["CurUser"].Expires = DateTime.Now.AddDays(1);
 
-            //Response.Redirect("../Default.aspx");
-            // Response.Redirect(Request.Url.AbsoluteUri);
             Response.Write("<script>window.opener.location.href = window.opener.location.href </script>");
+
         }
 
-        protected void btnLogin_Click(object sender, EventArgs e)
-        {
-            //SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString());
-            //string query = "SELECT link FROM ";
-            //SqlCommand insertQuery = new SqlCommand(query, connection);
-            //insertQuery.Parameters.AddWithValue("@webid", webid);
-        }
+
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -44,14 +37,14 @@ namespace WebProg
             //string selected = row.Cells[2].Text;
 
             int rowIndex = Convert.ToInt32(e.CommandArgument);
-            int selected = Convert.ToInt32( GridView1.Rows[rowIndex].Cells[0].Text);
+            int selected = Convert.ToInt32(GridView1.Rows[rowIndex].Cells[0].Text);
             var dataset = new DataSet();
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString());
             string query = "SELECT [WebsiteList].[Link] FROM [WebsiteList] INNER JOIN [Logins] on [Logins].[WebsiteID] = [WebsiteList].[Id] WHERE [Logins].[Id] = @sel ";
             SqlCommand selectQuery = new SqlCommand(query, connection);
             selectQuery.Parameters.AddWithValue("@sel", selected);
-
             connection.Open();
+
             /*selectQuery.ExecuteNonQuery();
             SqlDataReader reader = selectQuery.ExecuteReader();
             string answer = reader.GetValue(1).ToString();
@@ -62,7 +55,7 @@ namespace WebProg
 
             string answer = Convert.ToString(selectQuery.ExecuteScalar());
 
-            
+
             connection.Close();
 
             Response.Redirect(answer);

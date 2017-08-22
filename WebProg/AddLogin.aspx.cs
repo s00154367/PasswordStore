@@ -34,7 +34,6 @@ namespace WebProg
             string Ainfo = info.Text;
             string loguser = User.Identity.Name;
             
-            //string connectionstring = "Data Source=(LocalDb)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-WebProg-20170720092452.mdf;Initial Catalog=aspnet-WebProg-20170720092452;Integrated Security=true";
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString());
             string query = "Insert into Logins(WebsiteID,Username,Password,AdditionalInfo,[User],Email) Values ( @webid,@user,@pass,@Ainfo,@loguser,@_email)";
             SqlCommand insertQuery = new SqlCommand(query,connection);
@@ -55,7 +54,6 @@ namespace WebProg
             string name = Wname.Text;
             string address = link.Text;
             
-            //string connectionstring = "Data Source=(LocalDb)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-WebProg-20170720092452.mdf;Initial Catalog=aspnet-WebProg-20170720092452;Integrated Security=true";
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString());
             
             string query = "Insert into WebsiteList(Name,Link) Values (@name,@address)";
