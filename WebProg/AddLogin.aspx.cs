@@ -47,6 +47,8 @@ namespace WebProg
             connection.Open();
             insertQuery.ExecuteNonQuery();
             connection.Close();
+
+            Response.Redirect("Default.aspx");
         }
 
         protected void AddWebsite_Click(object sender, EventArgs e)
@@ -63,9 +65,14 @@ namespace WebProg
             connection.Open();
             insertQuery.ExecuteNonQuery();
             connection.Close();
-            
 
-            
+            ddlWebsite.DataBind();
+            int count = ddlWebsite.Items.Count;
+            ddlWebsite.SelectedIndex = count - 1;
+            Wname.Text = "";
+            link.Text = "";
+
+
         }
     }
 }
