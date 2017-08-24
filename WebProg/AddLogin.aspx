@@ -2,6 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <%--<link href="Styles/StyleSheet.css" rel="stylesheet" />--%>
+
     <div class="jumbotron">
         <h1>Password Bank</h1>
         <p class="lead">An easy and safe way to store passwords for all the sites you can think of</p>
@@ -15,20 +16,17 @@
 
         <div id="websiteDetails" class="col-md-4">
 
-            <label id="Label1" for="websiteName">
+            <label id="Label1" for="websiteName" >
                 Website Name:               
                 
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Id], [Name] FROM [WebsiteList]"></asp:SqlDataSource>
-                <asp:DropDownList ID="ddlWebsite" runat="server" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="Id" ></asp:DropDownList>
-
+                <asp:DropDownList ID="ddlWebsite" runat="server" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="Id"  ></asp:DropDownList>
                 
+            </label><br/>
+            <label id="Label3" for="username" >Username/Email:
+                <asp:TextBox ID="username" runat="server" ></asp:TextBox>
             </label>
-            <label id="Label3" for="username">
-                Username/Email:
-                <asp:TextBox ID="username" runat="server"></asp:TextBox>
-            </label>
-            <label id="Label4" for="password">
-                Password:
+            <label id="Label4" for="password"  >Password:
                 <asp:TextBox ID="password" runat="server"></asp:TextBox>
             </label>
             <label id="Label6" for="email">

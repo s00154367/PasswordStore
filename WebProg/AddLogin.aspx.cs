@@ -24,9 +24,7 @@ namespace WebProg
 
         protected void add_Click(object sender, EventArgs e)
         {
-
             string currentUser = User.Identity.Name;
-
             int webid = Convert.ToInt32(ddlWebsite.SelectedItem.Value);
             string user = username.Text;
             string _email = email.Text;
@@ -34,6 +32,7 @@ namespace WebProg
             string Ainfo = info.Text;
             string loguser = User.Identity.Name;
             
+            //insert the login into the database
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString());
             string query = "Insert into Logins(WebsiteID,Username,Password,AdditionalInfo,[User],Email) Values ( @webid,@user,@pass,@Ainfo,@loguser,@_email)";
             SqlCommand insertQuery = new SqlCommand(query,connection);
@@ -66,13 +65,12 @@ namespace WebProg
             insertQuery.ExecuteNonQuery();
             connection.Close();
 
+            //refresh the list, automatically select the added website and clear the textboxs. 
             ddlWebsite.DataBind();
             int count = ddlWebsite.Items.Count;
             ddlWebsite.SelectedIndex = count - 1;
             Wname.Text = "";
             link.Text = "";
-
-
         }
     }
 }
